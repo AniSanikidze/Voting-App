@@ -1,22 +1,24 @@
 <script>
-import { replace } from "svelte-spa-router";
-
-
+  import { onMount } from "svelte";
+  import { replace } from "svelte-spa-router";
   export let params;
   let poll;
   let votedPolls = JSON.parse(localStorage.getItem("votedPolls"));
-  console.log(votedPolls.length);
-  console.log(votedPolls)
 
-  function fetchAPI() {
-    return fetch(`/api/polls/${params.id}`)
+  onMount(() => {
+    if (votedPolls.includes(JSON.parse(params.id))){
+      replace(`/qa/${params.id}/result`)
+    }
+  });
+
+  async function fetchAPI() {
+    return await fetch(`/api/polls/${params.id}`)
       .then((response) => response.json())
       .then((data) => (poll = data[0]));
   }
 
-  function voteAnswer(answerId, pollId) {
-      console.log("executing")
-    return fetch(`/api/polls/vote/${answerId}`, {
+  async function voteAnswer(answerId, pollId) {
+    return await fetch(`/api/polls/vote/${answerId}`, {
       method: "PATCH",
     }).then((response) => {
       if (response.ok) {
@@ -32,7 +34,7 @@ import { replace } from "svelte-spa-router";
 {#await fetchAPI()}
   <p>Loading...</p>
 {:then poll}
-  <div class="content home">
+  <div class="content vote">
     <h2>Poll {poll.id}</h2>
     <div class="wrapper">
       <header>{poll.question}</header><p>Choose option to vote</p>
@@ -57,13 +59,14 @@ import { replace } from "svelte-spa-router";
 {/await}
 
 <style>
+  .vote{
+      width: 100%;
+}  
   .wrapper {
     background: #fff;
     border-radius: 15px;
     padding: 25px;
-    min-width: 500px;
-    max-width: fit-content;
-    width: 100%;
+    width: 70%;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     margin: auto;
     margin-top: 2rem;

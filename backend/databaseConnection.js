@@ -9,7 +9,7 @@ let pool = mysql.createPool({
     host: process.env.HOST,
     user: process.env.USER,
     password: process.env.PASSWORD,
-    database:"voting_app",
+    database: process.env.DATABASE,
     multipleStatements: true
 })
 

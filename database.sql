@@ -1,5 +1,3 @@
-USE `voting_app`;
-
 CREATE TABLE IF NOT EXISTS `voting_app`.`poll_questions` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `question` TEXT NOT NULL,

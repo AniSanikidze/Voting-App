@@ -10,7 +10,7 @@ const sqlCommands = fs.readFileSync('./database.sql').toString();
 const createTables = async () => {
    try {
     await pool.query(sqlCommands);
-    console.log("Tables successfully created")
+    console.log("Database setup and connection successfull")
 } catch (err) {
     console.error("Table creation failed:", err);
 }

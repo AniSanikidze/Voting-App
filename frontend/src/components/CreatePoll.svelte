@@ -1,4 +1,5 @@
 <script>
+  import { replace } from "svelte-spa-router";
   let num_of_answers = 2;
 
   let poll = {
@@ -14,7 +15,7 @@
       body: JSON.stringify(poll),
     }).then((response) => {
       if (response.ok) {
-        location.href = "/";
+        replace("/");
         console.log("Okay");
       }
     });
@@ -48,7 +49,7 @@
   }
 </script>
 
-<div class="content update">
+<div class="content create-poll">
   <h2>Create Poll</h2>
   <form on:submit|preventDefault={postPoll}>
     <div class="input">
@@ -74,10 +75,10 @@
           id={index}
           bind:value={poll.answers[index]}
           on:keydown={(e) => hanldeKeyPress(e,index,poll.answers[index])}
+          required
           data-gramm="false"
           data-gramm_editor="false"
           data-enable-grammarly="false"
-          required
         />
         <label for="description" class="input-label"
           >Poll Option {index + 1}</label
@@ -94,11 +95,14 @@
 </div>
 
 <style>
-  .update form {
+  .create-poll{
+      width: 100%;
+}  
+  .create-poll form {
     padding: 15px 0;
     display: flex;
     flex-flow: column;
-    width: 700px;
+    width: 80%;
     margin: auto;
   }
   .input {
@@ -116,6 +120,9 @@
     font: inherit;
     font-size: 1.125rem;
     height: 30px;
+    max-height: 150px;
+    min-width: 100%;
+    max-width: 100%;
   }
 
   textarea:focus {
@@ -151,10 +158,8 @@
     font-size: 12px;
     color: #ffffff;
     cursor: pointer;
-    /* width: 150px; */
     border-radius: 5px;
     padding: 10px  !important;
-    /* margin: auto; */
     margin-right: 15px;
     margin-top: 30px;
   }
@@ -166,10 +171,8 @@
     font-size: 12px;
     color: #ffffff;
     cursor: pointer;
-    /* width: 150px; */
     border-radius: 5px;
     padding: 10px !important;
-    /* margin: auto; */
     margin-top: 30px;
   }
   .create-poll-btn {

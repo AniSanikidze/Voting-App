@@ -20,7 +20,7 @@
     nav div {
       display: flex;
       margin: 0 auto;
-      width: 1000px;
+      max-width: 1200px;
       height: 100%;
     }
     .application-name, nav div a {
@@ -36,9 +36,10 @@
       margin: 0;
       color: #ecf0f6;
       font-weight: normal;
+      padding: 0 2%;
 }
 nav div a {
-      padding: 0 20px;
+      padding: 0 2%;
       text-decoration: none;
       color: #c5d2e5;
       font-weight: bold;

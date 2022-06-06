@@ -13,9 +13,7 @@
         ));
     }
 
-    function calculatePercentage(poll){
-        // console.log(poll)
-   
+    function calculatePercentage(poll){   
         total_votes = poll.answers.reduce(function (result, answer) {
             return result + answer.votes;
         }, 0);
@@ -58,13 +56,14 @@
   {/await}
   
   <style>
+      .home{
+      width: 100%;
+} 
     .wrapper {
       background: #fff;
       border-radius: 15px;
       padding: 25px;
-      min-width: 500px;
-      max-width: fit-content;
-      width: 100%;
+      width: 70%;
       box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
       margin: auto;
       margin-top: 2rem;
@@ -83,7 +82,6 @@
       padding: 8px 15px;
       border: 2px solid #e6e6e6;
       transition: all 0.2s ease;
-      cursor: pointer;
       background-color: #3ea1990a;
     }
     .poll-area label:hover{
@@ -99,31 +97,6 @@
     display: flex;
     align-items: center;
   }
-  .poll-area label .row .circle{
-      height: 19px;
-      width: 19px;
-      display: block;
-      border: 2px solid #ccc;
-      border-radius: 50%;
-      margin-right: 10px;
-      position: relative;
-  }
-  
-  .poll-area label:hover .row .circle{
-    display: block;
-    border-color: #3ea199;
-  } 
-  
-  .poll-area label:hover .row .circle::after{
-    content: "";
-    height: 15px;
-    width: 15px;
-    background: #3ea199;
-    border-radius: inherit;
-    position: absolute;
-    left: 2px;
-    top: 2px;
-  }
    
   label .row span{
     font-size: 16px;
@@ -134,25 +107,34 @@
   height: 7px;
   width: 100%;
   position: relative;
-  background: #f0f0f0;
   margin: 8px 0 3px 0;
   border-radius: 30px;
   pointer-events: none;
   display: flex !important;
-    }
-
-    label .progress:after{
-  position: absolute;
-  content: "";
-  height: 100%;
-  background: #ccc;
+  transform-origin: 0;
+  animation-name: progress-bar;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  background-color: #3ea199;
   width: calc(1% * var(--w));
   border-radius: inherit;
   transition: all 0.2s ease;
+    }
+@keyframes progress-bar {
+  0% {
+    background-color:rgba(149, 149, 149, 0.648);
+    transform: scaleX(0);
+  }
+  80% {
+    background-color:#3ea19968;
+  }
+  100% {
+    background-color: #3ea199;
+    transform: scaleX(1);
+  }
 }
-label .progress::after{
-  background: #3ea199;
-}
+
 label .progress,
 label .row .percent{
   display: block;

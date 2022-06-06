@@ -13,7 +13,9 @@
 	  '/qa/:id/result': PollResult
   };
   var votedPolls = [];
-  localStorage.setItem("votedPolls",JSON.stringify(votedPolls));
+  if (!localStorage.getItem('votedPolls')){
+      localStorage.setItem("votedPolls",JSON.stringify(votedPolls));
+  }
 </script>
 
 <Navbar/>
@@ -24,8 +26,6 @@
 <style>
   main {
     text-align: center;
-    padding: 1em;
-    max-width: 240px;
     margin: 0 auto;
   }
 
