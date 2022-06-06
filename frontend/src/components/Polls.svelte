@@ -47,7 +47,7 @@ async function deletePoll(id) {
         {/if}
     </table>
     {#if polls.length === 0}
-    <h3>No Polls</h3>
+    <h3>Currently there are no polls</h3>
     {/if}
 </div>
 {:catch error}

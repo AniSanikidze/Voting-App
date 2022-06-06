@@ -1,51 +1,51 @@
 <script>
   import { replace } from "svelte-spa-router";
   let num_of_answers = 2;
-
   let poll = {
     question: "",
     answers: [],
   };
-  function postPoll() {
-    fetch("/api/new-poll", {
+  //Sends new poll to the API and after successful addition,
+  //user is redirected to the home page - list of polls, where the user can vote or delete the poll.
+  //Validation of inputs, such as not sending an empty input value is ensured by the client-side of the application.
+  async function postPoll() {
+    const response = await fetch("/api/new-poll", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(poll),
-    }).then((response) => {
-      if (response.ok) {
-        replace("/");
-        console.log("Okay");
-      }
     });
+    if (response.ok) {
+      replace("/");
+    }
   }
-
+  //adding answer option
   function addOption() {
-        if (num_of_answers < 6){
-          num_of_answers += 1;    
-        }
-        
+    if (num_of_answers < 6) {
+      num_of_answers += 1;
+    }
   }
-
+  //removing answer option
   function removeOption() {
-        if (num_of_answers > 2){
-          num_of_answers -= 1;    
-        }
+    if (num_of_answers > 2) {
+      num_of_answers -= 1;
+    }
   }
-
-  async function hanldeKeyPress(e,index,value) {
-      if (index == num_of_answers - 1){
-            if (e.key === 'Enter') {
-                        await addOption();
-                        }
-            else if (e.key === 'Backspace' && value === "") {
-                       await removeOption()   
-                  }
-                  var textarea = [].slice.call(document.querySelectorAll('textarea')).pop();
-                        textarea.focus();
+  //handling keypress. Pressing enter key when last input is focused adds answer option,
+  //while pressing backspace when the input is empty, removes answer option.
+  async function hanldeKeyPress(e, index, value) {
+    if (index == num_of_answers - 1) {
+      if (e.key === "Enter") {
+        await addOption();
+        var textarea = document.getElementById(index + 1);
+        textarea.focus();
+      } else if (e.key === "Backspace" && value === "") {
+        await removeOption();
+        var textarea = document.getElementById(index - 1);
+        textarea.focus();
       }
-     
+    }
   }
 </script>
 
@@ -53,32 +53,28 @@
   <h2>Create Poll</h2>
   <form on:submit|preventDefault={postPoll}>
     <div class="input">
-      <textarea
+      <input
         type="text"
         class="input-field"
         name="title"
         id="title"
         bind:value={poll.question}
-        data-gramm="false"
-        data-gramm_editor="false"
-        data-enable-grammarly="false"
+        maxlength="120"
         required
       />
       <label for="description" class="input-label">Poll Question</label>
     </div>
     {#each Array(num_of_answers) as _, index (index)}
-    <div class="input" id="answers">
-        <textarea
+      <div class="input" id="answers">
+        <input
           type="text"
           class="input-field"
           name="description"
           id={index}
           bind:value={poll.answers[index]}
-          on:keydown={(e) => hanldeKeyPress(e,index,poll.answers[index])}
+          on:keydown={(e) => hanldeKeyPress(e, index, poll.answers[index])}
           required
-          data-gramm="false"
-          data-gramm_editor="false"
-          data-enable-grammarly="false"
+          maxlength="120"
         />
         <label for="description" class="input-label"
           >Poll Option {index + 1}</label
@@ -86,18 +82,27 @@
       </div>
     {/each}
     <div class="create-poll-btns">
-      <input type="button" value="Add Option" class="add-option-btn" on:click={addOption} />
-      <input type="button" value="Remove Option" class="remove-option-btn" on:click={removeOption} />
-</div>
-      <input type="submit" value="Publish" class="create-poll-btn" />
-    
+      <input
+        type="button"
+        value="Add Option"
+        class="add-option-btn"
+        on:click={addOption}
+      />
+      <input
+        type="button"
+        value="Remove Option"
+        class="remove-option-btn"
+        on:click={removeOption}
+      />
+    </div>
+    <input type="submit" value="Publish" class="create-poll-btn" />
   </form>
 </div>
 
 <style>
-  .create-poll{
-      width: 100%;
-}  
+  .create-poll {
+    width: 100%;
+  }
   .create-poll form {
     padding: 15px 0;
     display: flex;
@@ -120,12 +125,11 @@
     font: inherit;
     font-size: 1.125rem;
     height: 30px;
-    max-height: 150px;
     min-width: 100%;
     max-width: 100%;
   }
 
-  textarea:focus {
+  input:focus {
     outline: 0;
     border-bottom-color: #3ea199;
   }
@@ -136,12 +140,12 @@
     transition: 0.25s ease;
   }
 
-  textarea:focus + label {
+  input:focus + label {
     color: #3ea199;
     transform: translateY(-1.5rem);
   }
 
-  textarea:valid + .input-label {
+  input:valid + .input-label {
     color: #3ea199;
     transform: translateY(-1.5rem);
   }
@@ -150,8 +154,8 @@
     flex-direction: row;
     justify-content: flex-end;
   }
-  .add-option-btn{
-      display: block;
+  .add-option-btn {
+    display: block;
     background-color: #3e57a1;
     border: 0;
     font-weight: bold;
@@ -159,12 +163,12 @@
     color: #ffffff;
     cursor: pointer;
     border-radius: 5px;
-    padding: 10px  !important;
+    padding: 10px !important;
     margin-right: 15px;
     margin-top: 30px;
   }
-  .remove-option-btn{
-      display: block;
+  .remove-option-btn {
+    display: block;
     background-color: #a13e3e;
     border: 0;
     font-weight: bold;
@@ -190,6 +194,6 @@
     margin-top: 30px;
   }
   .create-poll-btn:hover {
-    background-color: #3ea199;
+    background-color: #2b736d;
   }
 </style>

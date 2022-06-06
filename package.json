@@ -21,7 +21,6 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "fs": "^0.0.1-security",
-    "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.16",
     "svelte-spa-router": "^3.2.0"
