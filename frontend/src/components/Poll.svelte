@@ -8,29 +8,31 @@
 
   //Redirecting to results page if the user has already voted in this poll
   onMount(() => {
-    if (votedPolls.includes(JSON.parse(params.id))){
-      replace(`/qa/${params.id}/result`)
+    if (votedPolls.includes(JSON.parse(params.id))) {
+      replace(`/qa/${params.id}/result`);
     }
   });
   //Getting specific poll by fetching API, otherwise raising an error.
   async function fetchAPI() {
     const response = await fetch(`/api/polls/${params.id}`);
-    if (!response.ok){
+    if (!response.ok) {
       const error = response.status;
-      throw new Error(error)
+      throw new Error(error);
     }
     const data = await response.json();
     if (response.ok) {
       poll = data[0];
-      return poll
+      return poll;
     }
   }
   //Voting for a chosen answer.
   async function voteAnswer(answerId, pollId) {
-    const response = await fetch(`/api/polls/vote/${answerId}`, {method: "PATCH"})
-    if (!response.ok){
-      const error = response.status
-      throw new Error(error)
+    const response = await fetch(`/api/polls/vote/${answerId}`, {
+      method: "PATCH",
+    });
+    if (!response.ok) {
+      const error = response.status;
+      throw new Error(error);
     } else {
       votedPolls.push(pollId);
       localStorage.setItem("votedPolls", JSON.stringify(votedPolls));
@@ -50,8 +52,12 @@
       <div class="poll-area">
         {#each poll.answers as answer}
           <div>
-            <input type="checkbox" name="poll" id="opt-1"/>
-            <label for="opt-1" class="opt-1" on:click={() => voteAnswer(answer.answerId, poll.id)}>
+            <input type="checkbox" name="poll" id="opt-1" />
+            <label
+              for="opt-1"
+              class="opt-1"
+              on:click={() => voteAnswer(answer.answerId, poll.id)}
+            >
               <div class="row">
                 <div class="column">
                   <span class="circle" />
@@ -69,9 +75,9 @@
 {/await}
 
 <style>
-  .vote{
-      width: 100%;
-}  
+  .vote {
+    width: 100%;
+  }
   .wrapper {
     background: #fff;
     border-radius: 15px;
@@ -98,20 +104,20 @@
     cursor: pointer;
     background-color: #3ea1990a;
   }
-  .poll-area label:hover{
-  border-color: #3ea199!important;
-}
+  .poll-area label:hover {
+    border-color: #3ea199 !important;
+  }
 
-.poll-area label .row{
-  display: flex;
-  pointer-events: none;
-  justify-content: space-between;
-} 
-.poll-area label .row .column{
-  display: flex;
-  align-items: center;
-}
-.poll-area label .row .circle{
+  .poll-area label .row {
+    display: flex;
+    pointer-events: none;
+    justify-content: space-between;
+  }
+  .poll-area label .row .column {
+    display: flex;
+    align-items: center;
+  }
+  .poll-area label .row .circle {
     height: 19px;
     width: 19px;
     display: block;
@@ -119,30 +125,30 @@
     border-radius: 50%;
     margin-right: 10px;
     position: relative;
-}
+  }
 
-.poll-area label:hover .row .circle{
-  display: block;
-  border-color: #3ea199;
-} 
+  .poll-area label:hover .row .circle {
+    display: block;
+    border-color: #3ea199;
+  }
 
-.poll-area label:hover .row .circle::after{
-  content: "";
-  height: 15px;
-  width: 15px;
-  background: #3ea199;
-  border-radius: inherit;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-}
- 
-label .row span{
-  font-size: 16px;
-  font-weight: 500;
-} 
+  .poll-area label:hover .row .circle::after {
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: #3ea199;
+    border-radius: inherit;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+  }
 
-input[type="checkbox"]{
-  display: none;
-}
+  label .row span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
 </style>

@@ -1850,7 +1850,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (53:0) {:catch error}
+    // (65:0) {:catch error}
     function create_catch_block$2(ctx) {
     	let p;
     	let t_value = /*error*/ ctx[6] + "";
@@ -1860,7 +1860,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			t = text(t_value);
-    			add_location(p, file$5, 53, 0, 1696);
+    			add_location(p, file$5, 65, 2, 1760);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1876,14 +1876,14 @@ var app = (function () {
     		block,
     		id: create_catch_block$2.name,
     		type: "catch",
-    		source: "(53:0) {:catch error}",
+    		source: "(65:0) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:0) {:then polls}
+    // (22:0) {:then polls}
     function create_then_block$2(ctx) {
     	let div;
     	let h2;
@@ -1926,22 +1926,22 @@ var app = (function () {
     			if (if_block0) if_block0.c();
     			t9 = space();
     			if (if_block1) if_block1.c();
-    			add_location(h2, file$5, 25, 1, 612);
-    			add_location(p, file$5, 26, 1, 629);
-    			attr_dev(td0, "class", "svelte-c5dn7w");
-    			add_location(td0, file$5, 30, 16, 772);
-    			attr_dev(td1, "class", "svelte-c5dn7w");
-    			add_location(td1, file$5, 31, 16, 807);
-    			attr_dev(td2, "class", "svelte-c5dn7w");
-    			add_location(td2, file$5, 32, 16, 842);
-    			attr_dev(tr, "class", "svelte-c5dn7w");
-    			add_location(tr, file$5, 29, 12, 750);
-    			attr_dev(thead, "class", "svelte-c5dn7w");
-    			add_location(thead, file$5, 28, 8, 729);
-    			attr_dev(table, "class", "svelte-c5dn7w");
-    			add_location(table, file$5, 27, 1, 712);
-    			attr_dev(div, "class", "content home svelte-c5dn7w");
-    			add_location(div, file$5, 24, 0, 583);
+    			add_location(h2, file$5, 23, 4, 567);
+    			add_location(p, file$5, 24, 4, 587);
+    			attr_dev(td0, "class", "svelte-ffh6pc");
+    			add_location(td0, file$5, 30, 10, 735);
+    			attr_dev(td1, "class", "svelte-ffh6pc");
+    			add_location(td1, file$5, 31, 10, 764);
+    			attr_dev(td2, "class", "svelte-ffh6pc");
+    			add_location(td2, file$5, 32, 10, 793);
+    			attr_dev(tr, "class", "svelte-ffh6pc");
+    			add_location(tr, file$5, 29, 8, 719);
+    			attr_dev(thead, "class", "svelte-ffh6pc");
+    			add_location(thead, file$5, 28, 6, 702);
+    			attr_dev(table, "class", "svelte-ffh6pc");
+    			add_location(table, file$5, 27, 4, 687);
+    			attr_dev(div, "class", "content home svelte-ffh6pc");
+    			add_location(div, file$5, 22, 2, 535);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1976,14 +1976,14 @@ var app = (function () {
     		block,
     		id: create_then_block$2.name,
     		type: "then",
-    		source: "(24:0) {:then polls}",
+    		source: "(22:0) {:then polls}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (36:8) {#if polls.length !== 0}
+    // (36:6) {#if polls.length !== 0}
     function create_if_block_1(ctx) {
     	let tbody;
     	let each_value = /*polls*/ ctx[2];
@@ -2002,7 +2002,7 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(tbody, file$5, 36, 8, 932);
+    			add_location(tbody, file$5, 36, 8, 872);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tbody, anchor);
@@ -2046,14 +2046,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(36:8) {#if polls.length !== 0}",
+    		source: "(36:6) {#if polls.length !== 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (37:15) {#each polls as poll}
+    // (38:11) {#each polls as poll}
     function create_each_block$3(ctx) {
     	let tr;
     	let td0;
@@ -2098,25 +2098,25 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "Delete";
     			t7 = space();
-    			attr_dev(td0, "class", "svelte-c5dn7w");
-    			add_location(td0, file$5, 38, 22, 1009);
-    			attr_dev(td1, "class", "svelte-c5dn7w");
-    			add_location(td1, file$5, 39, 30, 1059);
+    			attr_dev(td0, "class", "svelte-ffh6pc");
+    			add_location(td0, file$5, 39, 14, 946);
+    			attr_dev(td1, "class", "svelte-ffh6pc");
+    			add_location(td1, file$5, 40, 14, 980);
 
     			attr_dev(a, "href", /*votedPolls*/ ctx[0].includes(/*poll*/ ctx[3].id)
     			? `/#/qa/${/*poll*/ ctx[3].id}/result`
     			: `/#/qa/${/*poll*/ ctx[3].id}`);
 
-    			attr_dev(a, "class", "view svelte-c5dn7w");
+    			attr_dev(a, "class", "view svelte-ffh6pc");
     			attr_dev(a, "title", "View Poll");
-    			add_location(a, file$5, 41, 36, 1173);
-    			attr_dev(span, "class", "trash svelte-c5dn7w");
+    			add_location(a, file$5, 42, 16, 1058);
+    			attr_dev(span, "class", "trash svelte-ffh6pc");
     			attr_dev(span, "title", "Delete Poll");
-    			add_location(span, file$5, 42, 36, 1386);
-    			attr_dev(td2, "class", "actions svelte-c5dn7w");
-    			add_location(td2, file$5, 40, 30, 1115);
-    			attr_dev(tr, "class", "svelte-c5dn7w");
-    			add_location(tr, file$5, 37, 12, 981);
+    			add_location(span, file$5, 50, 16, 1387);
+    			attr_dev(td2, "class", "actions svelte-ffh6pc");
+    			add_location(td2, file$5, 41, 14, 1020);
+    			attr_dev(tr, "class", "svelte-ffh6pc");
+    			add_location(tr, file$5, 38, 12, 926);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -2152,14 +2152,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(37:15) {#each polls as poll}",
+    		source: "(38:11) {#each polls as poll}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (49:4) {#if polls.length === 0}
+    // (61:4) {#if polls.length === 0}
     function create_if_block(ctx) {
     	let h3;
 
@@ -2167,7 +2167,7 @@ var app = (function () {
     		c: function create() {
     			h3 = element("h3");
     			h3.textContent = "Currently there are no polls";
-    			add_location(h3, file$5, 49, 4, 1622);
+    			add_location(h3, file$5, 61, 6, 1682);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
@@ -2181,14 +2181,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(49:4) {#if polls.length === 0}",
+    		source: "(61:4) {#if polls.length === 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (22:19)    <p>Loading...</p>  {:then polls}
+    // (20:19)     <p>Loading...</p>  {:then polls}
     function create_pending_block$2(ctx) {
     	let p;
 
@@ -2196,7 +2196,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Loading...";
-    			add_location(p, file$5, 22, 1, 549);
+    			add_location(p, file$5, 20, 2, 499);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -2211,7 +2211,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$2.name,
     		type: "pending",
-    		source: "(22:19)    <p>Loading...</p>  {:then polls}",
+    		source: "(20:19)     <p>Loading...</p>  {:then polls}",
     		ctx
     	});
 
@@ -2275,7 +2275,7 @@ var app = (function () {
     }
 
     async function fetchAPI() {
-    	return await fetch('/api/polls').then(response => response.json());
+    	return await fetch("/api/polls").then(response => response.json());
     }
 
     async function deletePoll(id) {
@@ -2721,7 +2721,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (67:0) {:catch error}
+    // (73:0) {:catch error}
     function create_catch_block$1(ctx) {
     	let h1;
     	let t_value = /*error*/ ctx[9] + "";
@@ -2731,7 +2731,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(t_value);
-    			add_location(h1, file$3, 67, 2, 2092);
+    			add_location(h1, file$3, 73, 2, 2176);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -2747,14 +2747,14 @@ var app = (function () {
     		block,
     		id: create_catch_block$1.name,
     		type: "catch",
-    		source: "(67:0) {:catch error}",
+    		source: "(73:0) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (44:0) {:then poll}
+    // (46:0) {:then poll}
     function create_then_block$1(ctx) {
     	let div2;
     	let h2;
@@ -2798,16 +2798,16 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(h2, file$3, 45, 4, 1379);
-    			attr_dev(header, "class", "svelte-jye1tr");
-    			add_location(header, file$3, 47, 6, 1437);
-    			add_location(p, file$3, 48, 6, 1477);
-    			attr_dev(div0, "class", "poll-area svelte-jye1tr");
-    			add_location(div0, file$3, 49, 6, 1516);
-    			attr_dev(div1, "class", "wrapper svelte-jye1tr");
-    			add_location(div1, file$3, 46, 4, 1408);
-    			attr_dev(div2, "class", "content vote svelte-jye1tr");
-    			add_location(div2, file$3, 44, 2, 1347);
+    			add_location(h2, file$3, 47, 4, 1403);
+    			attr_dev(header, "class", "svelte-1d5tw1j");
+    			add_location(header, file$3, 49, 6, 1461);
+    			add_location(p, file$3, 50, 6, 1501);
+    			attr_dev(div0, "class", "poll-area svelte-1d5tw1j");
+    			add_location(div0, file$3, 51, 6, 1540);
+    			attr_dev(div1, "class", "wrapper svelte-1d5tw1j");
+    			add_location(div1, file$3, 48, 4, 1432);
+    			attr_dev(div2, "class", "content vote svelte-1d5tw1j");
+    			add_location(div2, file$3, 46, 2, 1371);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -2862,14 +2862,14 @@ var app = (function () {
     		block,
     		id: create_then_block$1.name,
     		type: "then",
-    		source: "(44:0) {:then poll}",
+    		source: "(46:0) {:then poll}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:8) {#each poll.answers as answer}
+    // (53:8) {#each poll.answers as answer}
     function create_each_block$1(ctx) {
     	let div2;
     	let input;
@@ -2906,20 +2906,20 @@ var app = (function () {
     			attr_dev(input, "type", "checkbox");
     			attr_dev(input, "name", "poll");
     			attr_dev(input, "id", "opt-1");
-    			attr_dev(input, "class", "svelte-jye1tr");
-    			add_location(input, file$3, 52, 12, 1610);
-    			attr_dev(span0, "class", "circle svelte-jye1tr");
-    			add_location(span0, file$3, 56, 18, 1849);
-    			attr_dev(span1, "class", "text svelte-jye1tr");
-    			add_location(span1, file$3, 57, 18, 1892);
-    			attr_dev(div0, "class", "column svelte-jye1tr");
-    			add_location(div0, file$3, 55, 16, 1809);
-    			attr_dev(div1, "class", "row svelte-jye1tr");
-    			add_location(div1, file$3, 54, 14, 1774);
+    			attr_dev(input, "class", "svelte-1d5tw1j");
+    			add_location(input, file$3, 54, 12, 1634);
+    			attr_dev(span0, "class", "circle svelte-1d5tw1j");
+    			add_location(span0, file$3, 62, 18, 1933);
+    			attr_dev(span1, "class", "text svelte-1d5tw1j");
+    			add_location(span1, file$3, 63, 18, 1976);
+    			attr_dev(div0, "class", "column svelte-1d5tw1j");
+    			add_location(div0, file$3, 61, 16, 1893);
+    			attr_dev(div1, "class", "row svelte-1d5tw1j");
+    			add_location(div1, file$3, 60, 14, 1858);
     			attr_dev(label, "for", "opt-1");
-    			attr_dev(label, "class", "opt-1 svelte-jye1tr");
-    			add_location(label, file$3, 53, 12, 1671);
-    			add_location(div2, file$3, 51, 10, 1591);
+    			attr_dev(label, "class", "opt-1 svelte-1d5tw1j");
+    			add_location(label, file$3, 55, 12, 1696);
+    			add_location(div2, file$3, 53, 10, 1615);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -2953,14 +2953,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(51:8) {#each poll.answers as answer}",
+    		source: "(53:8) {#each poll.answers as answer}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (42:19)     <h1>Loading...</h1>  {:then poll}
+    // (44:19)     <h1>Loading...</h1>  {:then poll}
     function create_pending_block$1(ctx) {
     	let h1;
 
@@ -2968,7 +2968,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			h1.textContent = "Loading...";
-    			add_location(h1, file$3, 42, 2, 1310);
+    			add_location(h1, file$3, 44, 2, 1334);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -2983,7 +2983,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$1.name,
     		type: "pending",
-    		source: "(42:19)     <h1>Loading...</h1>  {:then poll}",
+    		source: "(44:19)     <h1>Loading...</h1>  {:then poll}",
     		ctx
     	});
 
