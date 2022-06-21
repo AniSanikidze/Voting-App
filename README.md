@@ -22,7 +22,13 @@ PASSWORD="password"
 The variable values are provided as examples.
 
 The user needs to provide an already existing database were tables can be created.
+
 ## Usage
+
+https://user-images.githubusercontent.com/56120787/174861348-e27a3346-0056-4333-9949-c102cffc3886.mp4
+
+
+## Running Application
 
 ```bash
 cd voting-app
